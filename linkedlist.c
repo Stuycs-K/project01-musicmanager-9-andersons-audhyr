@@ -5,13 +5,13 @@
 #include <string.h>
 
 int print(struct node s, int n){
-    printf("[%d] Song %s Artist %s\n", n, s.name, s.artist);
+    printf("[%d] Song %s Artist %s\n", n, s.song, s.artist);
 }
 
 struct node* new(char n[], char Artist[], struct node *next){
     
     struct node *a=  malloc(208);
-    strcpy(a->name, n);
+    strcpy(a->song, n);
     strcpy(a->artist, Artist);
     a->next = next;
     return a;
@@ -43,3 +43,9 @@ struct node * free_list(struct node * front){
 
 }
 
+struct node * songpoint(struct node * front, char* song, char* artist){
+    if(strcmp(front->song, song)==0 && strcmp(front->artist, artist)==0){
+        return front;
+    }
+    return songpoint(front->next, song, artist);
+}
