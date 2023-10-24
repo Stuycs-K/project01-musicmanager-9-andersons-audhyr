@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <stdio.h>
 #include <stdlib.h>
 #include "linkedlist.h"
@@ -42,4 +41,3 @@ struct node * free_list(struct node * front){
     return front;
 
 }
->>>>>>> 68a4e45bb31665abf187c281832cc6d2919ccece
