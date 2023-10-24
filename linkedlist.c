@@ -19,7 +19,7 @@ struct node* new(char n[], char Artist[], struct node *next){
 }
 
 struct node * insert_front(struct node * next, char* n, char* a){
-    new(n, a, next);
+    return new(n, a, next);
 
 }
 
