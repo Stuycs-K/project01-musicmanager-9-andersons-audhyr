@@ -43,3 +43,14 @@ struct node * free_list(struct node * front){
 
 }
 
+int compareNodes(struct node* c1, struct node*c2){
+    int compareArtist = strcmp(c1->artist, c2->artist);
+    if(compareArtist < 0) return -1;
+    if(compareArtist > 0) return 1;
+
+    int compareSong = strcmp(c1->name, c2->name);
+    if(compareSong < 0) return -1;
+    if(compareSong > 0) return 1;
+
+    return 0;
+} 
