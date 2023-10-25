@@ -85,3 +85,9 @@ struct node* insertOrder(struct node* insertTo, struct node*insert){
 
     return front;
 }
+struct node * artistpoint(struct node * front, char* artist){
+    if(strcmp(front->artist, artist)==0){
+        return front;
+    }
+    return artistpoint(front->next, artist);
+}

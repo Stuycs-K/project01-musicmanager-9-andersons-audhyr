@@ -7,3 +7,4 @@ struct node * insert_front(struct node *next , char* n, char* a);
 void print_list(struct node * front);
 struct node * free_list(struct node *front );
 struct node * songpoint(struct node * front, char* song, char* artist);
+struct node * artistpoint(struct node * front, char* artist);
