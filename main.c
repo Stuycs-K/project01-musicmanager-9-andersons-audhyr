@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+#include "library.h"
 int main(){
     srand( time(NULL) );
     // struct node * front = insert_front( '\0',"Bohemian Rhapsody", "Queen");
@@ -37,5 +37,7 @@ int main(){
     printf("\n");
     playlist = removeSong(playlist, "Without You, I Can't Feel Silence", "Megaapple");
     print_list(playlist);
-
+    struct node ** newlib= newlibrary();
+    
+    for(int i = 0; i < 10; i++) newlib = addnode(songs[i], artists[i], newlib);
 }
