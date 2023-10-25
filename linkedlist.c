@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "linkedlist.h"
 #include <string.h>
-
+#include "library.h"
 int print(struct node *s, int n){
     printf("[%d]Song: %s || Artist: %s\n", n, s->song, s->artist);
 }
