@@ -14,3 +14,15 @@ struct node ** addnode(char* song, char* artist, struct node ** lib){
      return lib;
 
 }
+void printlib(struct node ** lib){
+    for(int i =0; i<27;i++){
+        printf("%c\n", i+65);
+        print_list(lib[i]);
+    }
+
+}
+void printbylett(struct node ** lib, char* lett){
+        printf("%s\n", lett);
+        print_list(lib[*lett-65]);
+    }
+

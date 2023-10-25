@@ -40,4 +40,7 @@ int main(){
     struct node ** newlib= newlibrary();
     
     for(int i = 0; i < 10; i++) newlib = addnode(songs[i], artists[i], newlib);
+    printlib(newlib);
+    printf("\n\n");
+    printbylett(newlib, "A");
 }
