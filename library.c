@@ -14,3 +14,13 @@ struct node ** addnode(char* song, char* artist, struct node ** lib){
      return lib;
 
 }
+
+struct node  * songInLibrary(struct node **lib, char *song, char *artist){
+    struct node *list = lib[artist[0]-65];
+    return songpoint(list, song, artist);
+}
+
+struct node  * findArtist(struct node **lib, char *artist){
+    struct node *list = lib[artist[0]-65];
+    return artistpoint(list, artist);
+}

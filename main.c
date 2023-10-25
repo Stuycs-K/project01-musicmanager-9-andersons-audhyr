@@ -41,4 +41,7 @@ int main(){
     struct node ** newlib= newlibrary();
     
     for(int i = 0; i < 10; i++) newlib = addnode(songs[i], artists[i], newlib);
+
+    print(songInLibrary(newlib, "Classic Misery", "Apple Metal"), 0);
+    print(findArtist(newlib,"Apple Metal"), 0);
 }
