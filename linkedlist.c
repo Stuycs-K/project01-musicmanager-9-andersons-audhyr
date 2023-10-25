@@ -105,3 +105,26 @@ struct node *randomSong(struct node *list){
 
     return front;
 }
+
+struct node *removeSong(struct node *list, char* song, char* artist){
+    struct node *front = list;
+    struct node *remove;
+
+    if(strcmp(list->song, song) == 0 && strcmp(list->artist, artist) == 0){
+        front = list->next;
+        free(list);
+        return front;
+    }
+
+    while(list->next != NULL){
+        remove = list->next;
+        if(strcmp(remove->song, song) == 0 && strcmp(remove->artist, artist) == 0){
+            list->next = remove->next;
+            free(remove);
+            return front;
+        }
+        list = list->next;
+    }
+
+    return front;
+}

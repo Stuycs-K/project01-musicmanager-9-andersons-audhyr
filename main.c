@@ -25,5 +25,17 @@ int main(){
     struct node * a = artistpoint(playlist, "Megaapple");
     print(a, 0);
 
+
     print(randomSong(playlist), 0);
+    
+    printf("\n");
+    playlist = removeSong(playlist, "Complete Bird", "Japan Panic");
+    print_list(playlist);
+    printf("\n");
+    playlist = removeSong(playlist, "fake song", "Japan Panic");
+    print_list(playlist);
+    printf("\n");
+    playlist = removeSong(playlist, "Without You, I Can't Feel Silence", "Megaapple");
+    print_list(playlist);
+
 }

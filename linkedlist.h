@@ -9,3 +9,5 @@ struct node * free_list(struct node *front );
 struct node * songpoint(struct node * front, char* song, char* artist);
 struct node * artistpoint(struct node * front, char* artist);
 struct node *randomSong(struct node *list);
+
+struct node *removeSong(struct node *list, char* song, char* artist);
