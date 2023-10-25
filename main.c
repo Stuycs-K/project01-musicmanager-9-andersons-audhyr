@@ -1,8 +1,10 @@
 #include "linkedlist.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main(){
+    srand( time(NULL) );
     // struct node * front = insert_front( '\0',"Bohemian Rhapsody", "Queen");
     // front = insert_front( front,"Build Me Up Buttercup", "The Foundations");
     // print_list(front);
@@ -22,4 +24,6 @@ int main(){
     printf("\n");
     struct node * a = artistpoint(playlist, "Megaapple");
     print(a, 0);
+
+    print(randomSong(playlist), 0);
 }

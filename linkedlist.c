@@ -91,3 +91,17 @@ struct node * artistpoint(struct node * front, char* artist){
     }
     return artistpoint(front->next, artist);
 }
+
+struct node *randomSong(struct node *list){
+    struct node *front = list;
+    int size = 0;
+    
+    while(list != NULL){
+        size++;
+        list = list->next;
+    }
+    
+    for(int i = 0; i < rand()%size; i++) front = front->next; 
+
+    return front;
+}
