@@ -64,7 +64,7 @@ struct node * songpoint(struct node * front, char* song, char* artist){
 struct node* insertOrder(struct node* insertTo, struct node*insert){
     struct node *front = insertTo;
     if(insertTo == NULL || compareNodes(insert, insertTo) == -1){
-        if(insertTo != NULL) insert->next = insertTo;
+        insert->next = insertTo;
         return insert;
     }
 
@@ -79,6 +79,8 @@ struct node* insertOrder(struct node* insertTo, struct node*insert){
             insertTo->next = insert;
             return front;
         }
+
+        insertTo = insertTo->next;
     }
 
     return front;
