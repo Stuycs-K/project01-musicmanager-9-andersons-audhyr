@@ -4,8 +4,8 @@
 #include "linkedlist.h"
 #include <string.h>
 
-int print(struct node s, int n){
-    printf("[%d] Song %s Artist %s\n", n, s.song, s.artist);
+int print(struct node *s, int n){
+    printf("[%d]Song: %s || Artist: %s\n", n, s->song, s->artist);
 }
 
 struct node* new(char n[], char Artist[], struct node *next){
@@ -25,7 +25,7 @@ struct node * insert_front(struct node * next, char* n, char* a){
 
 void print_list(struct node * front){
     for(int i = 0; !front == '\0'; i++){
-        print(*front, i);
+        print(front, i);
         front = front->next;
     }
 
@@ -59,4 +59,27 @@ struct node * songpoint(struct node * front, char* song, char* artist){
         return front;
     }
     return songpoint(front->next, song, artist);
+}
+
+struct node* insertOrder(struct node* insertTo, struct node*insert){
+    struct node *front = insertTo;
+    if(insertTo == NULL || compareNodes(insert, insertTo) == -1){
+        if(insertTo != NULL) insert->next = insertTo;
+        return insert;
+    }
+
+    while(insertTo != NULL){
+        if(insertTo->next == NULL){
+            insertTo->next = insert;
+            return front; 
+        }
+
+        if(compareNodes(insert, insertTo) == 1 && compareNodes(insert, insertTo->next) == -1){
+            insert->next = insertTo->next;
+            insertTo->next = insert;
+            return front;
+        }
+    }
+
+    return front;
 }
