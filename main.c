@@ -50,4 +50,5 @@ int main(){
 
     clearLibrary(newlib);
     printlib(newlib);
+    shufflePrint(newlib, 10);
 }

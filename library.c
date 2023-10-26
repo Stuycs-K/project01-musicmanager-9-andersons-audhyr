@@ -47,6 +47,11 @@ struct node  * findArtist(struct node **lib, char *artist){
 
 void shufflePrint(struct node **lib, int n){
     struct node *list;
+
+    int isEmpty = 1;
+    for(int i = 0; i < 27; i++) if(lib[i] != NULL) isEmpty = 0;
+    if(isEmpty) return;
+
     for(int i = 0; i < n; i++){
         list = NULL;
         while(list == NULL) list = lib[rand()%27];
