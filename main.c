@@ -37,10 +37,26 @@ int main(){
     printf("\n");
     playlist = removeSong(playlist, "Without You, I Can't Feel Silence", "Megaapple");
     print_list(playlist);
+
     struct node ** newlib= newlibrary();
     
     for(int i = 0; i < 10; i++) newlib = addnode(songs[i], artists[i], newlib);
+
     printlib(newlib);
     printf("\n\n");
     printbylett(newlib, "A");
+
+
+    printf("SongInLibrary test: \n");
+    print(songInLibrary(newlib, "Classic Misery", "Apple Metal"), 0);
+    printf("findArtist test: \n");
+    print(findArtist(newlib,"Apple Metal"), 0);
+    printf("\n");
+    printf("printArtist test: \n");
+    printartist(newlib, "Apple Metal");
+    printf("\n");
+    printartist(newlib, "Japan Panic");
+    printf("deletesong test: \n");
+    removeSong(newlib, "Classic Misery", "Apple Metal");
+    printlib(newlib);
 }
