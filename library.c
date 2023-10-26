@@ -10,10 +10,30 @@ struct node ** newlibrary(){
 
 }
 struct node ** addnode(char* song, char* artist, struct node ** lib){
+    if(artist[0]-65<26 && artist[0] -65 >=0){
      lib[artist[0]-65] =insertOrder(lib[artist[0]-65], new(song, artist, NULL));
+     return lib;}
+    else{
+        lib[26] =insertOrder(lib[26], new(song, artist, NULL));
      return lib;
+    }
 
 }
+
+void printlib(struct node ** lib){
+    for(int i =0; i<27;i++){
+        printf("%c\n", i+65);
+        print_list(lib[i]);
+    }
+
+}
+void printbylett(struct node ** lib, char* lett){
+        printf("%s\n", lett);
+        print_list(lib[*lett-65]);
+    }
+
+
+
 
 struct node  * songInLibrary(struct node **lib, char *song, char *artist){
     struct node *list = lib[artist[0]-65];
@@ -41,3 +61,25 @@ struct node ** clearLibrary(struct node **lib){
 
     return lib;
 }
+void printartist(struct node **lib, char * artist){
+    struct node *list = findArtist(lib, artist);
+    int i = 0;
+    while(strcmp(list->artist,artist)==0){
+        print(list,i);
+        if(list->next == '\0'){break;}
+        list = list->next;
+        i++;
+    }
+}
+
+struct node * deletesong(struct node ** lib, char* song, char* artist){
+    if(artist[0]-65<26 && artist[0] -65 >=0){
+        return removeSong(lib[artist[0]-65],song,artist);
+    }
+    else{
+        return removeSong(lib[26],song,artist);
+    }
+
+}
+
+
