@@ -66,3 +66,4 @@ struct node * deletesong(struct node ** lib, char* song, char* artist){
 
 }
 
+
