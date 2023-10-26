@@ -48,5 +48,6 @@ int main(){
 
     shufflePrint(newlib, 5);
 
-    //clearLibrary(newlib);
+    clearLibrary(newlib);
+    printlib(newlib);
 }
