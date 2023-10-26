@@ -66,7 +66,7 @@ void printartist(struct node **lib, char * artist){
     int i = 0;
     while(strcmp(list->artist,artist)==0){
         print(list,i);
-        if(list->next == '\0'){break;}
+        if(list->next == NULL){break;}
         list = list->next;
         i++;
     }
