@@ -44,4 +44,7 @@ int main(){
 
     print(songInLibrary(newlib, "Classic Misery", "Apple Metal"), 0);
     print(findArtist(newlib,"Apple Metal"), 0);
+    printf("-------------------------\n");
+
+    shufflePrint(newlib, 5);
 }

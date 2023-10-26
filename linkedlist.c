@@ -101,7 +101,7 @@ struct node *randomSong(struct node *list){
         list = list->next;
     }
     
-    for(int i = 0; i < rand()%size; i++) front = front->next; 
+    if(size != 0) for(int i = 0; i < rand()%size; i++) front = front->next; 
 
     return front;
 }

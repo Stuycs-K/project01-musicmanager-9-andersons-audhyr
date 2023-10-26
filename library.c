@@ -24,3 +24,12 @@ struct node  * findArtist(struct node **lib, char *artist){
     struct node *list = lib[artist[0]-65];
     return artistpoint(list, artist);
 }
+
+void shufflePrint(struct node **lib, int n){
+    struct node *list;
+    for(int i = 0; i < n; i++){
+        list = NULL;
+        while(list == NULL) list = lib[rand()%27];
+        print(randomSong(list), i);
+    }
+}
