@@ -33,3 +33,11 @@ void shufflePrint(struct node **lib, int n){
         print(randomSong(list), i);
     }
 }
+
+struct node ** clearLibrary(struct node **lib){
+    for(int i = 0; i < 27; i++){
+        lib[i] = free_list(lib[i]);
+    }
+
+    return lib;
+}

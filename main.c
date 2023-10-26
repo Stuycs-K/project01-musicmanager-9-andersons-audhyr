@@ -47,4 +47,6 @@ int main(){
     printf("-------------------------\n");
 
     shufflePrint(newlib, 5);
+
+    //clearLibrary(newlib);
 }
