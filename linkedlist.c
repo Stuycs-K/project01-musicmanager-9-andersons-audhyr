@@ -5,6 +5,10 @@
 #include <string.h>
 #include "library.h"
 int print(struct node *s, int n){
+    if(s==NULL){
+        printf("No song in the library");
+        return 1;
+    }
     printf("[%d]Song: %s || Artist: %s\n", n, s->song, s->artist);
 }
 
@@ -55,8 +59,12 @@ int compareNodes(struct node* c1, struct node*c2){
     return 0;
 } 
 struct node * songpoint(struct node * front, char* song, char* artist){
-    if(strcmp(front->song, song)==0 && strcmp(front->artist, artist)==0){
+    
+    if((strcmp(front->song, song)==0) && (strcmp(front->artist, artist)==0)){
         return front;
+    }
+    if(front->next ==NULL){
+        return NULL;
     }
     return songpoint(front->next, song, artist);
 }
@@ -86,7 +94,7 @@ struct node* insertOrder(struct node* insertTo, struct node*insert){
     return front;
 }
 struct node * artistpoint(struct node * front, char* artist){
-    if(strcmp(front->artist, artist)==0){
+    if((strcmp(front->artist, artist)==0)){
         return front;
     }
     return artistpoint(front->next, artist);
