@@ -1,4 +1,4 @@
-default: 
+default: compile
 compile runme:   linkedlist.o main.o library.o
 	@gcc -o runme main.o linkedlist.o library.o -lm
 main.o: main.c linkedlist.h library.h

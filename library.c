@@ -29,15 +29,24 @@ void printlib(struct node ** lib){
 }
 void printbylett(struct node ** lib, char* lett){
         printf("%s\n", lett);
-        print_list(lib[*lett-65]);
+        if(*lett -65<26 && *lett -65>=0){
+        print_list(lib[*lett-65]);}
+        else{
+            print_list(lib[26]);
+        }
     }
 
 
 
 
 struct node  * songInLibrary(struct node **lib, char *song, char *artist){
+     if(artist[0]-65<26 && artist[0] -65 >=0){
     struct node *list = lib[artist[0]-65];
-    return songpoint(list, song, artist);
+    return songpoint(list, song, artist);}
+     else{
+        struct node *list = lib[26];
+     return songpoint(list, song, artist);
+    }
 }
 
 struct node  * findArtist(struct node **lib, char *artist){
