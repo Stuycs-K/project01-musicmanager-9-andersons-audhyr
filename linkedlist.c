@@ -4,12 +4,13 @@
 #include "linkedlist.h"
 #include <string.h>
 #include "library.h"
-int print(struct node *s, int n){
+void print(struct node *s, int n){
     if(s==NULL){
-        printf("No song in the library");
-        return 1;
+        printf("[ ]\n");
+        return NULL;
     }
-    printf("[%d]Song: %s || Artist: %s\n", n, s->song, s->artist);
+    else{
+    printf("[%d]Song: %s || Artist: %s\n", n, s->song, s->artist);}
 }
 
 struct node* new(char n[], char Artist[], struct node *next){
@@ -96,6 +97,9 @@ struct node* insertOrder(struct node* insertTo, struct node*insert){
 struct node * artistpoint(struct node * front, char* artist){
     if((strcmp(front->artist, artist)==0)){
         return front;
+    }
+     if(front->next ==NULL){
+        return NULL;
     }
     return artistpoint(front->next, artist);
 }
