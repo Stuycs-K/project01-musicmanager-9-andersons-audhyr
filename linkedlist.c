@@ -7,10 +7,19 @@
 void print(struct node *s, int n){
     if(s==NULL){
         printf("[ ]\n");
-        return NULL;
+        return;
     }
     else{
     printf("[%d]Song: %s || Artist: %s\n", n, s->song, s->artist);}
+}
+
+void printInd(struct node *s){
+    if(s==NULL){
+        printf("[ ]\n");
+        return;
+    }
+    else{
+    printf("Song: %s || Artist: %s\n", s->song, s->artist);}
 }
 
 struct node* new(char n[], char Artist[], struct node *next){
