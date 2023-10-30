@@ -40,20 +40,11 @@ void printbylett(struct node ** lib, char* lett){
 
 
 struct node  * songInLibrary(struct node **lib, char *song, char *artist){
-     if(artist[0]-65<26 && artist[0] -65 >=0){
-         struct node *list = lib[artist[0]-65];
-        if(songpoint(list, song, artist)==NULL){
-            return NULL;
-        }
-   
-    return songpoint(list, song, artist);}
-     else{
-        struct node *list = lib[26];
-        if(songpoint(list, song, artist)==NULL){
-            return NULL;
-        }
-     return songpoint(list, song, artist);
-    }
+    struct node *list;
+    if(artist[0]-65 < 26 && artist[0]-65 >= 0) list = lib[artist[0]-65];
+    else list = lib[26];
+    
+    return songpoint(list, song, artist);
 }
 
 struct node  * findArtist(struct node **lib, char *artist){

@@ -26,10 +26,11 @@ printf("Testing Library:\n ==================================================\n"
       printf("Checking for \"Without You, I Can't Feel Silence\" by \"Megaapple\" in the library and printing it if found\n");
     printInd(songInLibrary(newlib, "Without You, I Can't Feel Silence","Megaapple"));
     printf("Checking for \"Bananas Flying\" by \"Watermelons\" which isn't in the library\n");
-    printInd(NULL);
+    //printf("%u\n", newlib['W'-65]);
+    printInd(songpoint(NULL, "Bananas Flying", "Watermelons"));
     //printInd(songInLibrary(newlib, "Bananas Flying", "Watermelons"));
 
-printf("Testing Library:\n ==================================================\n");
+printf("Testing Linked List:\n ==================================================\n");
     
     struct node* playlist = NULL;
 
@@ -48,7 +49,7 @@ printf("Testing Library:\n ==================================================\n"
     printf("-----------\n");
 
     printf("Testing find pointer to node with given song and printing the resulting pointer (song:'Burning Revoluaation', artist:'Apple Metal'): Song doesn't exist so expecting nothing\n" );
-    printInd(songpoint(playlist, "Burning Revoluaation", "Apple Metal"));
+    printInd(songpoint(playlist, "Burning Revoluaation", "Wpple Metal"));
     printf("-----------\n");
 
     printf("Testing & printing pointer to first song by artist 'Megaapple':\n");

@@ -73,13 +73,14 @@ int compareNodes(struct node* c1, struct node*c2){
     return 0;
 } 
 struct node * songpoint(struct node * front, char* song, char* artist){
+    if(front == NULL) return NULL;
     
     if((strcmp(front->song, song)==0) && (strcmp(front->artist, artist)==0)){
         return front;
     }
-    if(front->next ==NULL){
-        return NULL;
-    }
+    // if(front->next ==NULL){
+    //     return NULL;
+    // }
     return songpoint(front->next, song, artist);
 }
 
