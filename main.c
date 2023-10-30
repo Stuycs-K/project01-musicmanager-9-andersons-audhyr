@@ -127,19 +127,17 @@ int oldtesting(){
     print(songpoint(playlist, "Burning Revolution", "Apple Metal"), 0);
     printf("-----------\n");
 
-    // printf("Testing find pointer to node with given song and printing the resulting pointer (song:'Burning Revoluaation', artist:'Apple Metal'): Song doesn't exist so expecting nothing\n" );
-    // print(songpoint(playlist, "Burning Revoluaation", "Apple Metal"), 0);  //CURRENTLY SEGFAULTS
-    // printf("-----------\n");
+    printf("Testing find pointer to node with given song and printing the resulting pointer (song:'Burning Revoluaation', artist:'Apple Metal'): Song doesn't exist so expecting nothing\n" );
+    print(songpoint(playlist, "Burning Revoluaation", "Apple Metal"), 0);  //CURRENTLY SEGFAULTS
+    printf("-----------\n");
 
     printf("Testing & printing pointer to first song by artist 'Megaapple':\n");
     print(artistpoint(playlist, "Megaapple"), 0);
     printf("-----------\n");
 
-    // printf("Testing & printing pointer to first song by artist 'Megaapplllle': Song doesn't exist so expecting nothing\n" );
-    // print(artistpoint(playlist, "Appllle Metal"), 0);  //CURRENTLY SEGFAULTS
-    // printf("-----------\n");
-
-    // print(NULL, 0);  //SEGFAULTS
+    printf("Testing & printing pointer to first song by artist 'Megaapplllle': Song doesn't exist so expecting nothing\n" );
+    print(artistpoint(playlist, "Appllle Metal"), 0);  //CURRENTLY SEGFAULTS
+    printf("-----------\n");
 
     printf("Testing & printing pointer to random song in playlist:\n");
     print(randomSong(playlist), 0);
