@@ -22,12 +22,14 @@ printf("Testing Library:\n ==================================================\n"
 
     printf("\nTesting songInLibrary:\n");
     printf("Checking for \"Stars Align\" by \"1Direction\" in the library and printing it if found\n");
-    print(songInLibrary(newlib, "Stars Align", "1Direction"),0);
+    printInd(songInLibrary(newlib, "Stars Align", "1Direction"));
       printf("Checking for \"Without You, I Can't Feel Silence\" by \"Megaapple\" in the library and printing it if found\n");
-    print(songInLibrary(newlib, "Without You, I Can't Feel Silence","Megaapple"),0);
+    printInd(songInLibrary(newlib, "Without You, I Can't Feel Silence","Megaapple"));
     printf("Checking for \"Bananas Flying\" by \"Watermelons\" which isn't in the library\n");
-    print(NULL, 0);
-    //print(songInLibrary(newlib, "Bananas Flying", "Watermelons"),0);
+    printInd(NULL);
+    //printInd(songInLibrary(newlib, "Bananas Flying", "Watermelons"));
+
+printf("Testing Library:\n ==================================================\n");
     
     struct node* playlist = NULL;
 
@@ -42,25 +44,49 @@ printf("Testing Library:\n ==================================================\n"
     printf("-----------\n");
 
     printf("Testing find pointer to node with given song and printing the resulting pointer (song:'Burning Revolution', artist:'Apple Metal'):\n" );
-    print(songpoint(playlist, "Burning Revolution", "Apple Metal"), 0);
+    printInd(songpoint(playlist, "Burning Revolution", "Apple Metal"));
     printf("-----------\n");
 
     printf("Testing find pointer to node with given song and printing the resulting pointer (song:'Burning Revoluaation', artist:'Apple Metal'): Song doesn't exist so expecting nothing\n" );
-    print(songpoint(playlist, "Burning Revoluaation", "Apple Metal"), 0);  //CURRENTLY SEGFAULTS
+    printInd(songpoint(playlist, "Burning Revoluaation", "Apple Metal"));
     printf("-----------\n");
 
     printf("Testing & printing pointer to first song by artist 'Megaapple':\n");
-    print(artistpoint(playlist, "Megaapple"), 0);
+    printInd(artistpoint(playlist, "Megaapple"));
     printf("-----------\n");
 
     printf("Testing & printing pointer to first song by artist 'Megaapplllle': Song doesn't exist so expecting nothing\n" );
-    print(artistpoint(playlist, "Appllle Metal"), 0);  //CURRENTLY SEGFAULTS
+    printInd(artistpoint(playlist, "Appllle Metal"));
     printf("-----------\n");
 
-    // print(NULL, 0);  //SEGFAULTS
+    printf("Testing & printing compareNodes to compare [Song: 'Hang Loose Dreams' Artist: 'Apple Metal'] with [Song: 'Hang Loose Dreams' Artist: 'Apple Metal']\n" );
+    printf("%d\n", compareNodes(songpoint(playlist, "Hang Loose Dreams", "Apple Metal"), songpoint(playlist, "Hang Loose Dreams", "Apple Metal")));
+    printf("-----------\n");
+
+    printf("Testing & printing compareNodes to compare [Song: 'Hang Loose Dreams' Artist: 'Apple Metal'] with [Song: 'Deep Festival' Artist: 'Megaapple']\n" );
+    printf("%d\n", compareNodes(songpoint(playlist, "Hang Loose Dreams", "Apple Metal"), songpoint(playlist, "Deep Festival", "Megaapple")));
+    printf("-----------\n");
+
+    printf("Testing & printing compareNodes to compare [Song: 'Deep Festival' Artist: 'Megaapple'] with [Song: 'Hang Loose Dreams' Artist: 'Apple Metal']\n" );
+    printf("%d\n", compareNodes(songpoint(playlist, "Deep Festival", "Megaapple"), songpoint(playlist, "Hang Loose Dreams", "Apple Metal")));
+    printf("-----------\n");
+
+    printf("Testing & printing compareNodes to compare [Song: 'Hang Loose Dreams' Artist: 'Apple Metal'] with [Song: 'Classic Misery' Artist: 'Apple Metal']\n" );
+    printf("%d\n", compareNodes(songpoint(playlist, "Hang Loose Dreams", "Apple Metal"), songpoint(playlist, "Classic Misery", "Apple Metal")));
+    printf("-----------\n");
 
     printf("Testing & printing pointer to random song in playlist:\n");
-    print(randomSong(playlist), 0);
+    printInd(randomSong(playlist));
+    printInd(randomSong(playlist));
+    printInd(randomSong(playlist));
+    printInd(randomSong(playlist));
+    printInd(randomSong(playlist));
+    printInd(randomSong(playlist));
+    printf("-----------\n");
+
+    printf("Testing remove single node with song: 'Deep Festival' artist: 'Megaapple' and printing the resulting list:\n");
+    playlist = removeSong(playlist, "Deep Festival", "Megaapple");
+    print_list(playlist);
     printf("-----------\n");
 
     printf("Testing remove single node with song: 'Hang Loose Dreams' artist: 'Apple Metal' and printing the resulting list:\n");
@@ -75,7 +101,7 @@ printf("Testing Library:\n ==================================================\n"
 
     printf("Testing free the entire list and printing the resulting list: (Expecting Nothing)\n");
     playlist = free_list(playlist);
-    print_list(playlist);
+    printInd(playlist);
     printf("-----------\n");
 
 }

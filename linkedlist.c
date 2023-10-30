@@ -58,7 +58,11 @@ struct node * free_list(struct node * front){
 }
 
 int compareNodes(struct node* c1, struct node*c2){
+    if(c1 == NULL && c2 == NULL) return 0;
+    if(c1 == NULL || c2 == NULL) return 100; 
+
     int compareArtist = strcmp(c1->artist, c2->artist);
+
     if(compareArtist < 0) return -1;
     if(compareArtist > 0) return 1;
 

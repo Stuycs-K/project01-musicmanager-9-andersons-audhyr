@@ -77,7 +77,7 @@ void shufflePrint(struct node **lib, int n){
     for(int i = 0; i < n; i++){
         list = NULL;
         while(list == NULL) list = lib[rand()%27];
-        print(randomSong(list), i);
+        printInd(randomSong(list));
     }
 }
 
