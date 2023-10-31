@@ -40,6 +40,7 @@ void printbylett(struct node ** lib, char* lett){
 
 
 struct node  * songInLibrary(struct node **lib, char *song, char *artist){
+    if(lib == NULL) return NULL;
     struct node *list;
     if(artist[0]-65 < 26 && artist[0]-65 >= 0) list = lib[artist[0]-65];
     else list = lib[26];
@@ -48,6 +49,7 @@ struct node  * songInLibrary(struct node **lib, char *song, char *artist){
 }
 
 struct node  * findArtist(struct node **lib, char *artist){
+    if(lib == NULL) return NULL;
     if(artist[0]-65<26 && artist[0] -65 >=0){
     struct node *list = lib[artist[0]-65];
     return artistpoint(list, artist);
@@ -59,6 +61,7 @@ struct node  * findArtist(struct node **lib, char *artist){
 }
 
 void shufflePrint(struct node **lib, int n){
+    if(lib == NULL) return;
     struct node *list;
 
     int isEmpty = 1;
@@ -73,6 +76,7 @@ void shufflePrint(struct node **lib, int n){
 }
 
 struct node ** clearLibrary(struct node **lib){
+    if(lib == NULL) return NULL;
     for(int i = 0; i < 27; i++){
         lib[i] = free_list(lib[i]);
     }
@@ -81,6 +85,7 @@ struct node ** clearLibrary(struct node **lib){
 }
 void printartist(struct node **lib, char * artist){
     struct node *list = findArtist(lib, artist);
+    if(list==NULL)return;
     int i = 0;
     while(strcmp(list->artist,artist)==0){
         print(list,i);
@@ -91,6 +96,7 @@ void printartist(struct node **lib, char * artist){
 }
 
 struct node * deletesong(struct node ** lib, char* song, char* artist){
+    if(lib==NULL)return NULL;
     if(artist[0]-65<26 && artist[0] -65 >=0){
         return removeSong(lib[artist[0]-65],song,artist);
     }

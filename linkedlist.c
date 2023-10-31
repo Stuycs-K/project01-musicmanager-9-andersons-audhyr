@@ -109,12 +109,13 @@ struct node* insertOrder(struct node* insertTo, struct node*insert){
     return front;
 }
 struct node * artistpoint(struct node * front, char* artist){
+    if(front == NULL) return NULL;
     if((strcmp(front->artist, artist)==0)){
         return front;
     }
-     if(front->next ==NULL){
-        return NULL;
-    }
+    //  if(front->next ==NULL){
+    //     return NULL;
+    // }
     return artistpoint(front->next, artist);
 }
 
@@ -135,6 +136,7 @@ struct node *randomSong(struct node *list){
 struct node *removeSong(struct node *list, char* song, char* artist){
     struct node *front = list;
     struct node *remove;
+    if(front == NULL)return NULL;
 
     if(strcmp(list->song, song) == 0 && strcmp(list->artist, artist) == 0){
         front = list->next;

@@ -13,22 +13,93 @@ printf("Testing Library:\n ==================================================\n"
     for(int i = 0; i < 11; i++) newlib = addnode(songs[i], artists[i], newlib);
     printf("Testing PrintLib and if the library generated and sorted correctly\n");
     printlib(newlib);
+    printf("-----------\n");
     printf("Printing an empty lib:\n");
+    
     printlib(emptylib);
+    printf("-----------\n");
     printf("testing printbylett\n");
+    
     printbylett(newlib, "A");
+    printf("-----------\n");
     printbylett(newlib, "9");
-    printbylett(newlib,"O");//not sure this is how it's supposed to function
+    printf("-----------\n");
+    printbylett(newlib,"O");
+    printf("-----------\n");//not sure this is how it's supposed to function
 
     printf("\nTesting songInLibrary:\n");
     printf("Checking for \"Stars Align\" by \"1Direction\" in the library and printing it if found\n");
     printInd(songInLibrary(newlib, "Stars Align", "1Direction"));
+    printf("-----------\n");
       printf("Checking for \"Without You, I Can't Feel Silence\" by \"Megaapple\" in the library and printing it if found\n");
     printInd(songInLibrary(newlib, "Without You, I Can't Feel Silence","Megaapple"));
+    printf("-----------\n");
     printf("Checking for \"Bananas Flying\" by \"Watermelons\" which isn't in the library\n");
     //printf("%u\n", newlib['W'-65]);
-    printInd(songpoint(NULL, "Bananas Flying", "Watermelons"));
-    //printInd(songInLibrary(newlib, "Bananas Flying", "Watermelons"));
+    printInd(songInLibrary(NULL, "Bananas Flying", "Watermelons"));
+    printInd(songInLibrary(newlib, "Bananas Flying", "Watermelons"));
+    printf("-----------\n");
+
+    printf("\nTesting findArtist:\n");
+    printf("Checking for\"1Direction\" in the library and printing the first song by that artist if found\n");
+    printInd(findArtist(newlib, "1Direction"));
+    printf("-----------\n");
+      printf("Checking for  \"Megaapple\" in the library and printing the first song by that artist if found\n");
+    printInd(findArtist(newlib, "Megaapple"));
+    printf("-----------\n");
+    printf("Checking for \"Watermelons\" which isn't in the library\n");
+    //printf("%u\n", newlib['W'-65]);
+    printInd(findArtist(NULL,  "Watermelons"));
+    printInd(findArtist(newlib,  "Watermelons"));
+    printf("-----------\n");
+
+    printf("\nTesting shufflePrint:\n");
+    printf("Creating a playlist from a NULL library (should print nothing)\n");
+    shufflePrint(NULL, 10);
+    printf("-----------\n");
+    printf("Creating a playlist with 0 elements from library\n");
+    shufflePrint(newlib,0);
+    printf("-----------\n");
+    printf("Creating a playlist with 1 elements from library\n");
+    shufflePrint(newlib,1);
+    printf("-----------\n");
+    printf("Creating a playlist with 15 elements from library\n");
+    shufflePrint(newlib,15);
+    printf("-----------\n");
+    printf("\nTesting printArtist:\n");
+    printf("Printing all songs by Megaapple");
+    printartist(newlib, "Megaapple");
+    printf("-----------\n");
+    printf("printing all songs by JJs who aren't in the library"
+    );
+    printartist(newlib, "JJs");
+    printf("-----------\n");
+
+    printf("\nTesting deletesong:\n");
+    printf("testing deletesong on Classic Misery by Apple Metal which is in the library\n");
+    deletesong(newlib, "Classic Misery", "Apple Metal");
+    printbylett(newlib, "A");
+    printf("-----------\n");
+    printf("testing deletesong on bye bye bananas by the Watermelons which isn't in the library(expecting nothing\n");
+    deletesong(newlib, "bye bye bananas", "Watermelons");
+    printlib(newlib);
+    printf("-----------\n");
+    printf("testing deletesong on NULL library(expecting nothing)\n\n");
+    deletesong(NULL, "bananas rock", "The happy fellows");
+    printf("-----------\n");
+
+
+
+    printf("\nTesting clearLibrary:\n");
+    printf("Cleared all of newlib");
+    clearLibrary(newlib);
+    printlib(newlib);
+    printf("-----------\n");
+    printf("Testing Clearing a NULl list");
+    clearLibrary(NULL);
+    printf("-----------\n");
+    
+
 
 printf("Testing Linked List:\n ==================================================\n");
     
